@@ -24,4 +24,10 @@ class Client(discord.Client):
         reaction: discord.Reaction,
         user: Union[discord.Member, discord.User]
     ):
-        self._reaction_add.handle(reaction, user)
+        await self._reaction_add.handle(reaction, user)
+
+
+
+if __name__ == "__main__":
+    client = Client()
+    client.run()
