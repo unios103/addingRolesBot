@@ -2,8 +2,8 @@ import discord
 import os
 from typing import Union
 
-from Reaction.ReactionAdd import ReactionAdd
-from Reaction.ReactionRemove import ReactionRemove
+from Role.ReactionAdd import ReactionAdd
+from Role.ReactionRemove import ReactionRemove
 
 
 
@@ -28,7 +28,7 @@ class Client(discord.Client):
     ):
         if user.bot:
             return
-            
+
         await self._reaction_add.handle(reaction, user)
 
     async def on_reaction_remove(

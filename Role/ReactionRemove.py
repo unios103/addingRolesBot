@@ -1,7 +1,7 @@
 import discord
 from typing import Union
 
-import Reaction.role_command as rc
+import Role.role_command as rc
 
 
 
