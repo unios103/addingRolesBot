@@ -1,7 +1,7 @@
 import discord
 from typing import Union
 
-
+import Reaction.role_command as rc
 
 class ReactionAdd:
     def __init__(self):
@@ -12,4 +12,7 @@ class ReactionAdd:
         reaction: discord.Reaction,
         user: Union[discord.Member, discord.User]
     ):
-        await reaction.message.channel.send("test")
+        message = reaction.message
+        role = rc.get_role(message)
+
+        await user.add_roles(role)
