@@ -1,9 +1,11 @@
 import discord
 from typing import Union
 
-import Reaction.role_command as rc
+import Role.role_command as rc
 
-class ReactionAdd:
+
+
+class ReactionRemove:
     def __init__(self):
         pass
 
@@ -15,4 +17,5 @@ class ReactionAdd:
         message = reaction.message
         role = rc.get_role(message)
 
-        await user.add_roles(role)
+        await user.remove_roles(role)
+        await message.channel.send("消した🎃")
