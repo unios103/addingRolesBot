@@ -12,4 +12,4 @@ def get_role(message: discord.Message) -> Optional[discord.Role]:
     if words[0] != "+role":
         return None
 
-    message.guild.get_role(int(words[1]))
+    return message.guild.get_role(int(words[1][3: -1]))
