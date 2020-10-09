@@ -17,4 +17,5 @@ class ReactionAdd:
         message = reaction.message
         role = rc.get_role(message)
 
-        await message.channel.send(role.id)
+        await user.add_roles(role)
+        await message.channel.send("追加した👾")

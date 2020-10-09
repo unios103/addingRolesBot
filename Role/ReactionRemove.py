@@ -18,3 +18,4 @@ class ReactionRemove:
         role = rc.get_role(message)
 
         await user.remove_roles(role)
+        await message.channel.send("消した🎃")
