@@ -5,9 +5,9 @@ from typing import Optional
 import Role.role_command as rc
 
 def get_corresponding_role(message: discord.Message, emoji: discord.Emoji) -> Optional[discord.Role]:
-    contents = re.sub('( |\n)', '', message.content)
+    contents = re.sub(r'( |\n)', '', message.content)
 
-    command_search = re.search('\+role', contents)
+    command_search = re.search(r'\+role', contents)
     if command_search == None:
         return None
 
