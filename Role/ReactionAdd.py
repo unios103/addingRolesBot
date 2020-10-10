@@ -1,8 +1,7 @@
 import discord
 from typing import Union
 
-import Role.role_command as rc
-
+import Role.corresponding_role as cr
 
 
 class ReactionAdd:
@@ -15,7 +14,10 @@ class ReactionAdd:
         user: Union[discord.Member, discord.User]
     ):
         message = reaction.message
-        role = rc.get_role(message)
+        role = cr.get_corresponding_role(message, reaction.emoji)
+
+        if role == None:
+            return
 
         await user.add_roles(role)
-        await message.channel.send("追加した👾")
+        await message.channel.send(str(user.name) + " に " +str(role) + " を追加した👾")

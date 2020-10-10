@@ -1,7 +1,7 @@
 import discord
 from typing import Union
 
-import Role.role_command as rc
+import Role.corresponding_role as cr
 
 
 
@@ -15,7 +15,10 @@ class ReactionRemove:
         user: Union[discord.Member, discord.User]
     ):
         message = reaction.message
-        role = rc.get_role(message)
+        role = cr.get_corresponding_role(message, reaction.emoji)
+
+        if role == None:
+            return
 
         await user.remove_roles(role)
-        await message.channel.send("消した🎃")
+        await message.channel.send(str(user.name) + " から " +str(role) + " を消した🎃")
