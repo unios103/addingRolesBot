@@ -1,7 +1,6 @@
 import discord
 from typing import Union
 
-import Role.role_command as rc
 import Role.corresponding_role as cr
 
 
