@@ -1,4 +1,4 @@
-@ addingRolesBot
+# addingRolesBot
 
 いい例
 
