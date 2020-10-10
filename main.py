@@ -4,7 +4,7 @@ from typing import Union
 
 from Role.ReactionAdd import ReactionAdd
 from Role.ReactionRemove import ReactionRemove
-
+from Help.Help import Help
 
 
 class Client(discord.Client):
@@ -17,6 +17,7 @@ class Client(discord.Client):
     async def on_ready(self):
         self._reaction_add = ReactionAdd()
         self._reaction_remove = ReactionRemove()
+        self._message = Help()
 
     async def on_message(self, message: discord.Message):
         pass
@@ -41,6 +42,12 @@ class Client(discord.Client):
 
         await self._reaction_remove.handle(reaction, user)
 
+    async def on_message(self, message: discord.Message):
+        if message.author.bot:
+            return
+
+        if message.content == "+help":
+            await self._message.handle(message)
 
 
 if __name__ == "__main__":

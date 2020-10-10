@@ -1,4 +1,12 @@
-@ addingRolesBot
+# addingRolesBot
+
+## コマンド
+
+- プレフィックス : `+`
+  - `+help` : ヘルプを表示
+  - `+role` : ロールを追加
+
+## 例
 
 いい例
 
