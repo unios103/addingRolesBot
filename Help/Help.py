@@ -13,7 +13,7 @@ class Help:
     ):
         file = open("README.md",'r')
         help_text = file.read()
-        help_text = help_text.split("##")[1].rstrip("\n\n")
-        help_text = "**" + re.sub(r'\n\n', r'**\n', help_text)
+        help_text = help_text[re.search(r'## コマンド', help_text).end():].split("## ")[0].strip()
+        help_text = "***📝 コマンド一覧***\n" + help_text
         await message.channel.send(help_text)
         file.close()
