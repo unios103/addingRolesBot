@@ -17,7 +17,7 @@ class Client(discord.Client):
     async def on_ready(self):
         self._reaction_add = ReactionAdd()
         self._reaction_remove = ReactionRemove()
-        self._message = Help()
+        self._help_command = Help()
 
     async def on_message(self, message: discord.Message):
         pass
@@ -47,7 +47,7 @@ class Client(discord.Client):
             return
 
         if message.content == "+help":
-            await self._message.handle(message)
+            await self._help_command.handle(message)
 
 
 if __name__ == "__main__":
